@@ -1,13 +1,31 @@
-import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-new-lib';
+import { View, StyleSheet, Text } from 'react-native';
+import { TpButton } from 'react-native-new-lib';
 
-const result = multiply(3, 7);
+// global
+import 'templarios-2.0/tokens/css/global.min.css';
+// congressos
+import 'templarios-2.0/tokens/css/congressos/base.min.css';
+import 'templarios-2.0/tokens/css/congressos/components/components.min.css';
+import 'templarios-2.0/tokens/css/congressos/schemes/dark.min.css';
+import 'templarios-2.0/tokens/css/congressos/themes/default.min.css';
 
 export default function App() {
+  // html class
+
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <div className="tp-congressos">
+      <View style={styles.container}>
+        <TpButton>
+          <Text>Solid</Text>
+        </TpButton>
+        <TpButton tpFill="solid">
+          <Text>Solid</Text>
+        </TpButton>
+        <TpButton tpFill="clear">
+          <Text>Clear</Text>
+        </TpButton>
+      </View>
+    </div>
   );
 }
 

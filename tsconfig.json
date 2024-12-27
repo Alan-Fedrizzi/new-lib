@@ -1,8 +1,19 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "rootDir": ".",
     "paths": {
-      "react-native-new-lib": ["./src/index"]
+      "react-native-new-lib": ["./src/index"],
+      "tokens/backoffice": [
+        "./node_modules/templarios-2.0/tokens/index.backoffice"
+      ],
+      "tokens/congressos": [
+        "./node_modules/templarios-2.0/tokens/index.congressos"
+      ],
+      "tokens/medsoft": ["./node_modules/templarios-2.0/tokens/index.medsoft"],
+      "tokens/storybook": [
+        "./node_modules/templarios-2.0/tokens/index.storybook"
+      ]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -11,7 +22,7 @@
     "jsx": "react-jsx",
     "lib": ["ESNext"],
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
@@ -25,6 +36,10 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/styled-components/native/dist"
+    ]
   }
 }
