@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { TpButton } from 'react-native-new-lib';
 
 // global
@@ -13,16 +13,31 @@ export default function App() {
   // html class
 
   return (
-    <div className="tp-congressos">
+    <div className="tp-congressos" style={styles.container}>
       <View style={styles.container}>
-        <TpButton>
-          <Text>Solid</Text>
+        <TpButton onPress={() => console.log('pressed')}>Solid</TpButton>
+        <TpButton tpFill="solid" onPress={() => console.log('pressed')}>
+          Solid
         </TpButton>
-        <TpButton tpFill="solid">
-          <Text>Solid</Text>
+        <TpButton tpFill="clear" onPress={() => console.log('pressed')}>
+          Clear
         </TpButton>
-        <TpButton tpFill="clear">
-          <Text>Clear</Text>
+        <TpButton tpDisabled onPress={() => console.log('pressed')}>
+          Solid Disabled
+        </TpButton>
+        <TpButton
+          tpFill="solid"
+          tpDisabled
+          onPress={() => console.log('pressed')}
+        >
+          Solid Disabled
+        </TpButton>
+        <TpButton
+          tpFill="clear"
+          tpDisabled
+          onPress={() => console.log('pressed')}
+        >
+          Clear Disabled
         </TpButton>
       </View>
     </div>
@@ -34,5 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    height: '100%',
+    backgroundColor: '#121616',
   },
 });
