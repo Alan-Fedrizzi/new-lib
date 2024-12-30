@@ -3,12 +3,18 @@ import styled, { css } from 'styled-components/native';
 import { type TpButtonProps, TpButtonFill } from 'tokens/congressos';
 
 export const ButtonContainer = styled(Pressable)<TpButtonProps>`
-  ${({ tpFill = TpButtonFill.SOLID, tpDisabled = false }) => css`
+  ${({
+    tpFill = TpButtonFill.SOLID,
+    tpDisabled = false,
+    isHovered = false,
+  }) => css`
     display: flex;
     align-items: center;
     background-color: ${tpDisabled
       ? `var(--tp-button-${tpFill}-bg-disabled)`
-      : `var(--tp-button-${tpFill}-bg-default)`};
+      : isHovered
+        ? `var(--tp-button-${tpFill}-bg-hover)`
+        : `var(--tp-button-${tpFill}-bg-default)`};
     border-radius: ${`var(--tp-button-${tpFill}-border-radius)`};
     height: ${`var(--tp-button-${tpFill}-height)`};
     padding-right: ${`var(--tp-button-${tpFill}-padding-horizontal)`};
@@ -16,21 +22,27 @@ export const ButtonContainer = styled(Pressable)<TpButtonProps>`
     cursor: ${tpDisabled ? 'initial' : 'pointer'};
     pointer-events: ${tpDisabled ? 'none' : 'all'};
 
-    &:hover {
+    /* &:hover {
       color: red;
-    }
+    } */
   `}
 `;
 
 export const ButtonText = styled(Text)<TpButtonProps>`
-  ${({ tpFill = TpButtonFill.SOLID, tpDisabled = false }) => css`
+  ${({
+    tpFill = TpButtonFill.SOLID,
+    tpDisabled = false,
+    isHovered = false,
+  }) => css`
     display: flex;
     align-items: center;
     height: 100%;
     color: ${tpDisabled
       ? `var(--tp-button-${tpFill}-fg-disabled)`
-      : `var(--tp-button-${tpFill}-fg-default)`};
-    /* font: var(--tp-button-solid-font); */
+      : isHovered
+        ? `var(--tp-button-${tpFill}-fg-hover)`
+        : `var(--tp-button-${tpFill}-fg-default)`};
+    /* TODO Yurepegar no objeto */
     font-weight: 600;
     font-size: 16px;
     line-height: 1.5em;
